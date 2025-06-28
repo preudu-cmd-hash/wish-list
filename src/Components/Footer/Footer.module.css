@@ -1,0 +1,47 @@
+.footer {
+  background: linear-gradient(360deg, #000 0%, #333 100%);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid #8a2be2;
+  padding: 2rem 1rem;
+  margin-top: 4rem;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.githubLink {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: aliceblue;
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.githubLink:hover {
+  color: #8a2be2;
+  background: #333;
+  border-color: aliceblue;
+  transform: scale(1.2) translate(-1px);
+}

@@ -1,0 +1,24 @@
+.header {
+    background: linear-gradient(#000 0%, #333 100%);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #8A2BE2;
+    padding: 2rem 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    text-shadow: 0 0 8px #8A2BE2;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: azure;
+    margin: 0 0 1.5rem 0;
+    letter-spacing: -0.025em;
+}
