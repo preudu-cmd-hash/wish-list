@@ -9,7 +9,7 @@ function App() {
       <div className={styles.app}>
         <Header />
         <main className={styles.main}>
-          <Card />
+          <Card name="Ps5" desciption="Para jogar não sei que horas..." />
         </main>
         <Footer />
       </div>
