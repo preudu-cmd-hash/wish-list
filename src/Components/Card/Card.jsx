@@ -1,7 +1,15 @@
-export const Card = () => {
-    return(
-        <div>
-            <h1>Card</h1>
-        </div>
-    )
-}
+import styles from "./Card.modules.css";
+
+export const Card = ({ name, desciption, image }) => {
+  return (
+    <div className={styles.cardContainer}>
+      <div className={styles.imgContainer}>
+        <img src={image} alt={name} className={styles.image} />
+      </div>
+      <div className={styles.content}>
+        <h3 className={styles.name}>{name}</h3>
+        <p className={styles.description}>{desciption}</p>
+      </div>
+    </div>
+  );
+};
