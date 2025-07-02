@@ -3,6 +3,7 @@ import styles from "./App.module.css";
 import { CardGrid } from "./Components/CardGrid/CardGrid";
 import { Footer } from "./Components/Footer/Footer";
 import { Header } from "./Components/Header/Header";
+import { AddItemForm } from "./Components/AddItemForm/AddItemForm";
 
 function App() {
   const [wishs, setWishs] = useState([]);
@@ -11,15 +12,6 @@ function App() {
     description: "",
     urlImage: "",
   });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    console.log(name, value);
-    setForm((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -31,43 +23,17 @@ function App() {
       urlImage: "",
     });
   };
-  console.log(wishs);
 
   return (
     <>
       <div className={styles.app}>
         <Header />
         <main className={styles.main}>
-          <form onSubmit={handleSubmit}>
-            <div>
-              <label htmlFor="name">Desejo</label>
-              <input
-                type="text"
-                name="name"
-                value={form.name}
-                onChange={handleChange}
-              />
-            </div>
-            <div>
-              <label htmlFor="description">Descrição</label>
-              <input
-                type="text"
-                name="description"
-                value={form.description}
-                onChange={handleChange}
-              />
-            </div>
-            <div>
-              <label htmlFor="">URL Imagem</label>
-              <input
-                type="text"
-                name="urlImage"
-                value={form.urlImage}
-                onChange={handleChange}
-              />
-            </div>
-            <button type="submit">Adicionar</button>
-          </form>
+          <AddItemForm
+            handleSubmit={handleSubmit}
+            form={form}
+            setForm={setForm}
+          />
           <CardGrid wishs={wishs} />
         </main>
         <Footer />
