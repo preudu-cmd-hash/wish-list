@@ -14,6 +14,7 @@ function App() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+    console.log(name, value);
     setForm((prev) => ({
       ...prev,
       [name]: value,
@@ -30,6 +31,7 @@ function App() {
       urlImage: "",
     });
   };
+  console.log(wishs);
 
   return (
     <>

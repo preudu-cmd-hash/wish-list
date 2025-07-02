@@ -1,6 +1,6 @@
 import styles from "./Card.module.css";
 
-export const Card = ({ name, desciption, image }) => {
+export const Card = ({ name, description, image }) => {
   return (
     <div className={styles.cardContainer}>
       <div className={styles.imgContainer}>
@@ -8,7 +8,7 @@ export const Card = ({ name, desciption, image }) => {
       </div>
       <div className={styles.content}>
         <h3 className={styles.name}>{name}</h3>
-        <p className={styles.description}>{desciption}</p>
+        <p className={styles.description}>{description}</p>
       </div>
     </div>
   );
