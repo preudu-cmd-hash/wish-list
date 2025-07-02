@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styles from "./App.module.css";
 import { CardGrid } from "./Components/CardGrid/CardGrid";
 import { Footer } from "./Components/Footer/Footer";
@@ -10,7 +11,7 @@ function App() {
     description: "",
     urlImage: "",
   });
-  
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setForm((prev) => ({
