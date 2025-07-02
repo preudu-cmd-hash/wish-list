@@ -1,0 +1,49 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  padding: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.inputContainer > input {
+  padding: 4px;
+  border: 2px solid #e2e8f0;
+  border-color: beige;
+  border-radius: 5px;
+  background: linear-gradient(135deg, #000 0%, #333 100%);
+  color: beige;
+}
+
+.inputContainer > input:focus {
+  outline: none;
+  border-color: blueviolet;
+  box-shadow: 0 0 5px purple;
+}
+
+.button {
+  background-color: black;
+  color: aliceblue;
+  padding: 8px;
+  border-radius: 7px;
+  place-self: flex-end;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.button:hover {
+  background-color: #333;
+  transform: scale(1.5);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px blueviolet;
+}
