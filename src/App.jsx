@@ -4,12 +4,68 @@ import { Footer } from "./Components/Footer/Footer";
 import { Header } from "./Components/Header/Header";
 
 function App() {
+  const [wishs, setWishs] = useState([]);
+  const [form, setForm] = useState({
+    name: "",
+    description: "",
+    urlImage: "",
+  });
+  
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setForm((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const updatedWishs = [...wishs, form];
+    setWishs(updatedWishs);
+    setForm({
+      name: "",
+      description: "",
+      urlImage: "",
+    });
+  };
+
   return (
     <>
       <div className={styles.app}>
         <Header />
         <main className={styles.main}>
-          <CardGrid />
+          <form onSubmit={handleSubmit}>
+            <div>
+              <label htmlFor="name">Desejo</label>
+              <input
+                type="text"
+                name="name"
+                value={form.name}
+                onChange={handleChange}
+              />
+            </div>
+            <div>
+              <label htmlFor="description">Descrição</label>
+              <input
+                type="text"
+                name="description"
+                value={form.description}
+                onChange={handleChange}
+              />
+            </div>
+            <div>
+              <label htmlFor="">URL Imagem</label>
+              <input
+                type="text"
+                name="urlImage"
+                value={form.urlImage}
+                onChange={handleChange}
+              />
+            </div>
+            <button type="submit">Adicionar</button>
+          </form>
+          <CardGrid wishs={wishs} />
         </main>
         <Footer />
       </div>
