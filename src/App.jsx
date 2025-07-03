@@ -12,6 +12,7 @@ function App() {
     name: "",
     description: "",
     urlImage: "",
+    date: "",
   });
 
   const handleSubmit = (e) => {
@@ -22,6 +23,7 @@ function App() {
       name: "",
       description: "",
       urlImage: "",
+      date: "",
     });
   };
 
