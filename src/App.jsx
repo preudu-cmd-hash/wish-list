@@ -25,6 +25,11 @@ function App() {
     });
   };
 
+  const handleDelete = (indexToDelete) => {
+    const updateWishs = wishs.filter((_, index) => index !== indexToDelete);
+    setWishs(updateWishs);
+  };
+
   useEffect(() => {
     const savedWishs = localStorage.getItem("userWishs");
     if (savedWishs) {
@@ -54,7 +59,7 @@ function App() {
             form={form}
             setForm={setForm}
           />
-          <CardGrid wishs={wishs} />
+          <CardGrid wishs={wishs} handleDelete={handleDelete} />
         </main>
         <Footer />
       </div>
