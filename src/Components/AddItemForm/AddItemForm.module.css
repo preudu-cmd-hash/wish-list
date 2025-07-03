@@ -33,6 +33,7 @@
   color: aliceblue;
   padding: 8px;
   border-radius: 7px;
+  border: 1px solid blueviolet;
   place-self: flex-end;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
