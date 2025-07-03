@@ -5,6 +5,8 @@
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   padding: 8px;
   margin-top: 5px;
+  overflow: hidden;
+  position: relative;
 }
 
 .imgContainer {
@@ -37,6 +39,33 @@
   line-height: 1.6;
   margin: 0;
   overflow: hidden;
+}
+
+.deleteButton {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  height: 2.5rem;
+  width: 2.5rem;
+  background-color: blueviolet;
+  padding: 6px;
+  gap: 1rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  border-radius: 50%;
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+.cardContainer:hover .deleteButton {
+  opacity: 1;
+}
+
+.deleteButton:hover {
+  transform: scale(1.5);
+  transform: translateY(-1px);
+  background-color: rgb(159, 88, 224);
 }
 
 @media (max-width: 768px) {

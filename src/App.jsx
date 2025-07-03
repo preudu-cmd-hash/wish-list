@@ -1,24 +1,18 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./App.module.css";
 import { CardGrid } from "./Components/CardGrid/CardGrid";
 import { Footer } from "./Components/Footer/Footer";
 import { Header } from "./Components/Header/Header";
+import { AddItemForm } from "./Components/AddItemForm/AddItemForm";
 
 function App() {
   const [wishs, setWishs] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [form, setForm] = useState({
     name: "",
     description: "",
     urlImage: "",
   });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setForm((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -31,42 +25,41 @@ function App() {
     });
   };
 
+  const handleDelete = (indexToDelete) => {
+    const updateWishs = wishs.filter((_, index) => index !== indexToDelete);
+    setWishs(updateWishs);
+  };
+
+  useEffect(() => {
+    const savedWishs = localStorage.getItem("userWishs");
+    if (savedWishs) {
+      try {
+        const parsedWishs = JSON.parse(savedWishs);
+        setWishs(parsedWishs);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    setLoading(false);
+  }, []);
+
+  useEffect(() => {
+    if (!loading) {
+      localStorage.setItem("userWishs", JSON.stringify(wishs));
+    }
+  }, [wishs]);
+
   return (
     <>
       <div className={styles.app}>
         <Header />
         <main className={styles.main}>
-          <form onSubmit={handleSubmit}>
-            <div>
-              <label htmlFor="name">Desejo</label>
-              <input
-                type="text"
-                name="name"
-                value={form.name}
-                onChange={handleChange}
-              />
-            </div>
-            <div>
-              <label htmlFor="description">Descrição</label>
-              <input
-                type="text"
-                name="description"
-                value={form.description}
-                onChange={handleChange}
-              />
-            </div>
-            <div>
-              <label htmlFor="">URL Imagem</label>
-              <input
-                type="text"
-                name="urlImage"
-                value={form.urlImage}
-                onChange={handleChange}
-              />
-            </div>
-            <button type="submit">Adicionar</button>
-          </form>
-          <CardGrid wishs={wishs} />
+          <AddItemForm
+            handleSubmit={handleSubmit}
+            form={form}
+            setForm={setForm}
+          />
+          <CardGrid wishs={wishs} handleDelete={handleDelete} />
         </main>
         <Footer />
       </div>
