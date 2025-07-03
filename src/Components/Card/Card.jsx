@@ -1,6 +1,6 @@
 import styles from "./Card.module.css";
 
-export const Card = ({ name, description, image, onDelete }) => {
+export const Card = ({ name, description, image, date, onDelete }) => {
   return (
     <div className={styles.cardContainer}>
       <div className={styles.imgContainer}>
@@ -9,6 +9,7 @@ export const Card = ({ name, description, image, onDelete }) => {
       <div className={styles.content}>
         <h3 className={styles.name}>{name}</h3>
         <p className={styles.description}>{description}</p>
+        <p className={styles.date}>{date}</p>
         <button className={styles.deleteButton} onClick={onDelete}>
           🗑️
         </button>
