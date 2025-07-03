@@ -1,6 +1,12 @@
 import styles from "./Card.module.css";
 
 export const Card = ({ name, description, image, date, onDelete }) => {
+  const [ano, mes, dia] = date.split("-");
+  const convertedDate = new Date(ano, mes - 1, dia);
+  const formatedDate = isNaN(convertedDate)
+    ? ""
+    : Intl.DateTimeFormat("pt-Br").format(convertedDate);
+
   return (
     <div className={styles.cardContainer}>
       <div className={styles.imgContainer}>
@@ -9,7 +15,7 @@ export const Card = ({ name, description, image, date, onDelete }) => {
       <div className={styles.content}>
         <h3 className={styles.name}>{name}</h3>
         <p className={styles.description}>{description}</p>
-        <p className={styles.date}>{date}</p>
+        <p className={styles.date}>{formatedDate}</p>
         <button className={styles.deleteButton} onClick={onDelete}>
           🗑️
         </button>

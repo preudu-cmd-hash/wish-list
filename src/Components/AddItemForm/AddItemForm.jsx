@@ -32,7 +32,7 @@ export const AddItemForm = ({ handleSubmit, form, setForm }) => {
         />
       </div>
       <div className={styles.inputContainer}>
-        <label htmlFor="">URL Imagem</label>
+        <label htmlFor="urlImage">URL Imagem</label>
         <input
           type="text"
           name="urlImage"
@@ -48,7 +48,6 @@ export const AddItemForm = ({ handleSubmit, form, setForm }) => {
           name="date"
           value={form.date}
           onChange={handleChange}
-          required
         />
       </div>
       <button className={styles.button} type="submit">
