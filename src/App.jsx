@@ -87,7 +87,11 @@ function App() {
             form={form}
             setForm={setForm}
           />
-          <CardGrid wishs={filteredWishs} handleDelete={handleDelete} />
+          <CardGrid
+            wishs={filteredWishs}
+            handleDelete={handleDelete}
+            search={search}
+          />
         </main>
         <Footer />
       </div>

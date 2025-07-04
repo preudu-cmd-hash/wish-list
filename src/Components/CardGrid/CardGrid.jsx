@@ -9,7 +9,7 @@ export const CardGrid = ({ wishs, handleDelete, search }) => {
   return (
     <>
       {isEmptySearch ? (
-        <EmptyState />
+        <EmptyState isSearching={isSearching} />
       ) : (
         <div className={styles.grid}>
           {wishs.map((wish, index) => (
