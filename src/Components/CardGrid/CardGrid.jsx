@@ -1,4 +1,5 @@
 import { Card } from "../Card/Card";
+import { EmptyState } from "../EmptyState/EmptyState";
 import styles from "./CardGrid.module.css";
 
 export const CardGrid = ({ wishs, handleDelete, search }) => {
@@ -6,17 +7,23 @@ export const CardGrid = ({ wishs, handleDelete, search }) => {
   const isEmptySearch = wishs && wishs.length === 0;
 
   return (
-    <div className={styles.grid}>
-      {wishs.map((wish, index) => (
-        <Card
-          key={`${wish.name}-${index}`}
-          name={wish.name}
-          description={wish.description}
-          image={wish.urlImage}
-          date={wish.date}
-          onDelete={() => handleDelete(index)}
-        />
-      ))}
-    </div>
+    <>
+      {isEmptySearch ? (
+        <EmptyState />
+      ) : (
+        <div className={styles.grid}>
+          {wishs.map((wish, index) => (
+            <Card
+              key={`${wish.name}-${index}`}
+              name={wish.name}
+              description={wish.description}
+              image={wish.urlImage}
+              date={wish.date}
+              onDelete={() => handleDelete(index)}
+            />
+          ))}
+        </div>
+      )}
+    </>
   );
 };
