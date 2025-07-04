@@ -2,7 +2,7 @@ import { useState } from "react";
 import styles from "./Header.module.css";
 import { useCallback } from "react";
 
-export const Header = ({ onSearch }) => {
+export const Header = ({ onSearch, onClear }) => {
   const [searchValue, setSearchValue] = useState("");
 
   const handleSubmit = useCallback(
@@ -33,6 +33,9 @@ export const Header = ({ onSearch }) => {
             />
             <button type="submit" className={styles.button}>
               Pesquisar
+            </button>
+            <button type="button" onClick={onClear} className={styles.clear}>
+              Limpar
             </button>
           </div>
         </form>

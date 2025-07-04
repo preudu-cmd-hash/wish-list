@@ -1,24 +1,87 @@
 .header {
-    background: linear-gradient(#000 0%, #333 100%);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid #8A2BE2;
-    padding: 2rem 1rem;
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    text-shadow: 0 0 8px #8A2BE2;
+  background: linear-gradient(#000 0%, #333 100%);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #8a2be2;
+  padding: 2rem 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  text-shadow: 0 0 8px #8a2be2;
 }
 
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .title {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: azure;
-    margin: 0 0 1.5rem 0;
-    letter-spacing: -0.025em;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: azure;
+  margin: 0 0 1.5rem 0;
+  letter-spacing: -0.025em;
+}
+
+.searchForm {
+  display: flex;
+  justify-content: end;
+  align-items: end;
+  flex-direction: column;
+  position: relative;
+}
+
+.input {
+  padding: 8px;
+  margin-right: 8px;
+  background: linear-gradient(#333 0%, #000 100%);
+  color: beige;
+  border: 1px solid blueviolet;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #8a2be2;
+  box-shadow: 0 0 4px purple;
+  transform: scale(1.05);
+  transform: translateY(1);
+}
+
+.button {
+  padding: 8px;
+  background: linear-gradient(
+    145deg,
+    rgb(203, 107, 241) 0%,
+    rgb(92, 6, 126) 100%
+  );
+  border: 1px solid black;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  color: aliceblue;
+}
+
+.button:hover {
+  box-shadow: 0 0 4px purple;
+  transform: scale(1.1);
+}
+
+.clear {
+  margin-left: 5px;
+  padding: 8px;
+  background: linear-gradient(
+    145deg,
+    rgb(203, 107, 241) 0%,
+    rgb(92, 6, 126) 100%
+  );
+  border: 1px solid black;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  color: aliceblue;
+}
+
+.clear:hover {
+  box-shadow: 0 0 4px purple;
+  transform: scale(1.1);
 }
