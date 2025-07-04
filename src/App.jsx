@@ -62,7 +62,7 @@ function App() {
     return wishs.filter((wish) => {
       const searchLower = search.toLowerCase();
       retun(
-        wishs.name.toLowerCase().includes(searchLower) ||
+        wish.name.toLowerCase().includes(searchLower) ||
           wish.description.toLowerCase().includes(searchLower)
       );
     });
