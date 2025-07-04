@@ -67,6 +67,11 @@
   transform: scale(1.1);
 }
 
+.button:active {
+  transition: all 0.01s ease;
+  transform: scale(0.8);
+}
+
 .clear {
   margin-left: 5px;
   padding: 8px;
@@ -84,4 +89,9 @@
 .clear:hover {
   box-shadow: 0 0 4px purple;
   transform: scale(1.1);
+}
+
+.clear:active {
+  transition: all 0.01s ease;
+  transform: scale(0.8);
 }
