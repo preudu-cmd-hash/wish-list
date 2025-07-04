@@ -1,6 +1,6 @@
 import styles from "./Card.module.css";
 
-export const Card = ({ name, description, image, date, onDelete, onEdit }) => {
+export const Card = ({ name, description, image, date, onDelete }) => {
   const [ano, mes, dia] = date ? date.split("-") : "";
   const convertedDate = new Date(ano, mes - 1, dia);
   const formatedDate = isNaN(convertedDate)
