@@ -1,5 +1,5 @@
 .header {
-  background: linear-gradient(#000 0%, #333 100%);
+  background-color: #222222;
   backdrop-filter: blur(10px);
   border-bottom: 1px solid #8a2be2;
   padding: 2rem 1rem;
@@ -34,7 +34,7 @@
 .input {
   padding: 8px;
   margin-right: 8px;
-  background: linear-gradient(#333 0%, #000 100%);
+  background-color: #333;
   color: beige;
   border: 1px solid blueviolet;
   border-radius: 6px;

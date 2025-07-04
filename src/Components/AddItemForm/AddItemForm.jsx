@@ -14,6 +14,7 @@ export const AddItemForm = ({ handleSubmit, form, setForm }) => {
       <div className={styles.inputContainer}>
         <label htmlFor="name">Desejo</label>
         <input
+          placeholder="EX: Viagem para a Disney"
           type="text"
           name="name"
           value={form.name}
@@ -24,6 +25,7 @@ export const AddItemForm = ({ handleSubmit, form, setForm }) => {
       <div className={styles.inputContainer}>
         <label htmlFor="description">Descrição</label>
         <input
+          placeholder="EX: Viajar no fim de ano..."
           type="text"
           name="description"
           value={form.description}
@@ -34,6 +36,7 @@ export const AddItemForm = ({ handleSubmit, form, setForm }) => {
       <div className={styles.inputContainer}>
         <label htmlFor="urlImage">URL Imagem</label>
         <input
+          placeholder="http://viagemDisney.com"
           type="text"
           name="urlImage"
           value={form.urlImage}
