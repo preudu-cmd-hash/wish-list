@@ -16,6 +16,7 @@ export const Header = ({ onSearch, onClear }) => {
   const handleChange = useCallback((e) => {
     const value = e.target.value;
     setSearchValue(value);
+    onSearch(value);
   }, []);
 
   return (
