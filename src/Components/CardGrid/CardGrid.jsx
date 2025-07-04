@@ -2,8 +2,8 @@ import { Card } from "../Card/Card";
 import styles from "./CardGrid.module.css";
 
 export const CardGrid = ({ wishs, handleDelete, search }) => {
-  const isSearching = search.length > 0;
-  const isEmptySearch = wishs.length === 0;
+  const isSearching = search && search.length > 0;
+  const isEmptySearch = wishs && wishs.length === 0;
 
   return (
     <div className={styles.grid}>
