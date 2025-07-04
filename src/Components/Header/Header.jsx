@@ -7,7 +7,7 @@ export const Header = ({ onSearch, onClear }) => {
 
   const handleSubmit = useCallback(
     (e) => {
-      e.preventDeafault();
+      e.preventDefault();
       onSearch(searchValue);
     },
     [searchValue, onSearch]

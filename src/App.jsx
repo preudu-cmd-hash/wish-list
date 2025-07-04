@@ -61,18 +61,19 @@ function App() {
     }
     return wishs.filter((wish) => {
       const searchLower = search.toLowerCase();
-      retun(
+      return (
         wish.name.toLowerCase().includes(searchLower) ||
-          wish.description.toLowerCase().includes(searchLower)
+        wish.description.toLowerCase().includes(searchLower)
       );
     });
-  });
+  }, [search, wishs]);
 
   const onSearch = useCallback((searchValue) => {
     setSearch(searchValue);
   });
 
   const onClear = useCallback(() => {
+    console.log("limpou");
     setSearch("");
   });
 
