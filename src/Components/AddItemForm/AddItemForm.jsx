@@ -12,7 +12,7 @@ export const AddItemForm = ({ handleSubmit, form, setForm }) => {
   return (
     <form className={styles.container} onSubmit={handleSubmit}>
       <div className={styles.inputContainer}>
-        <label htmlFor="name">Desejo</label>
+        <label htmlFor="name">Tarefa</label>
         <input
           placeholder="EX: Viagem para a Disney"
           type="text"

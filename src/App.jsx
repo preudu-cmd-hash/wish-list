@@ -73,7 +73,6 @@ function App() {
   });
 
   const onClear = useCallback(() => {
-    console.log("limpou");
     setSearch("");
   });
 
