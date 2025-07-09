@@ -13,8 +13,6 @@ export const Card = ({ name, description, image, date, onDelete, onEdit }) => {
   const [editDescription, setEditDescription] = useState(description);
   const [editDate, setEditDate] = useState(date);
 
-  
-
   return (
     <div className={styles.cardContainer}>
       <div className={styles.imgContainer}>
