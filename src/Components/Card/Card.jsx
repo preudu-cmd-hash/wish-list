@@ -23,7 +23,10 @@ export const Card = ({ name, description, image, date, onDelete, id }) => {
         <button className={styles.deleteButton} onClick={onDelete}>
           🗑️
         </button>
-        <button onClick={() => navigate(`/wish-list/wish/${id}`)}>
+        <button
+          className={styles.detalhes}
+          onClick={() => navigate(`/wish-list/wish/${id}`)}
+        >
           Detalhes
         </button>
       </div>

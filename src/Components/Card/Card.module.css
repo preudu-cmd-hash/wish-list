@@ -79,3 +79,24 @@
     font-size: 0.8125rem;
   }
 }
+
+.detalhes {
+  padding: 6px;
+  margin-top: 4px;
+  border: 1px solid transparent;
+  border-radius: 5.5px;
+  color: aliceblue;
+  background-color: blueviolet;
+  transition: all 0.2s ease;
+}
+
+.detalhes:hover {
+  background-color: rgb(152, 74, 224);
+  border-color: rgb(0, 0, 145);
+  transform: scale(1.1);
+  transform: translateY(-1px);
+}
+
+.detalhes:active {
+  transform: translateY(1px);
+}

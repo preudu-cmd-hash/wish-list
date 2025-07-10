@@ -3,6 +3,7 @@ import styles from "./App.module.css";
 import { CardGrid } from "./Components/CardGrid/CardGrid";
 import { Footer } from "./Components/Footer/Footer";
 import { AddItemForm } from "./Components/AddItemForm/AddItemForm";
+import { useWishs } from "./Hooks/useWishs";
 
 const DEFAULT_FORM = {
   name: "",
@@ -12,8 +13,7 @@ const DEFAULT_FORM = {
 };
 
 function App({ search }) {
-  const [wishs, setWishs] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const { wishs, setWishs } = useWishs();
   const [form, setForm] = useState(DEFAULT_FORM);
 
   const handleSubmit = (e) => {
@@ -21,7 +21,7 @@ function App({ search }) {
     const newId =
       wishs.length > 0 ? Math.max(...wishs.map((w) => Number(w.id))) + 1 : 1;
     const newWish = { ...form, id: newId };
-    const updatedWishs = [...wishs, form];
+    const updatedWishs = [...wishs, newWish];
     setWishs(updatedWishs);
     setForm(DEFAULT_FORM);
   };
@@ -33,25 +33,6 @@ function App({ search }) {
     },
     [wishs]
   );
-
-  useEffect(() => {
-    const savedWishs = localStorage.getItem("userWishs");
-    if (savedWishs) {
-      try {
-        const parsedWishs = JSON.parse(savedWishs);
-        setWishs(parsedWishs);
-      } catch (error) {
-        console.error(error);
-      }
-    }
-    setLoading(false);
-  }, []);
-
-  useEffect(() => {
-    if (!loading) {
-      localStorage.setItem("userWishs", JSON.stringify(wishs));
-    }
-  }, [wishs]);
 
   const filteredWishs = useMemo(() => {
     if (!search.trim()) {
