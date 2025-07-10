@@ -2,30 +2,26 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import styles from "./App.module.css";
 import { CardGrid } from "./Components/CardGrid/CardGrid";
 import { Footer } from "./Components/Footer/Footer";
-import { Header } from "./Components/Header/Header";
 import { AddItemForm } from "./Components/AddItemForm/AddItemForm";
 
-function App() {
+const DEFAULT_FORM = {
+  name: "",
+  description: "",
+  urlImage: "",
+  date: "",
+  id: "",
+};
+
+function App({ search }) {
   const [wishs, setWishs] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [search, setSearch] = useState("");
-  const [form, setForm] = useState({
-    name: "",
-    description: "",
-    urlImage: "",
-    date: "",
-  });
+  const [form, setForm] = useState(DEFAULT_FORM);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const updatedWishs = [...wishs, form];
     setWishs(updatedWishs);
-    setForm({
-      name: "",
-      description: "",
-      urlImage: "",
-      date: "",
-    });
+    setForm(DEFAULT_FORM);
   };
 
   const handleDelete = useCallback(
@@ -68,32 +64,20 @@ function App() {
     });
   }, [search, wishs]);
 
-  const onSearch = useCallback((searchValue) => {
-    setSearch(searchValue);
-  });
-
-  const onClear = useCallback(() => {
-    setSearch("");
-  });
-
   return (
     <>
-      <div className={styles.app}>
-        <Header onSearch={onSearch} onClear={onClear} />
-        <main className={styles.main}>
-          <AddItemForm
-            handleSubmit={handleSubmit}
-            form={form}
-            setForm={setForm}
-          />
-          <CardGrid
-            wishs={filteredWishs}
-            handleDelete={handleDelete}
-            search={search}
-          />
-        </main>
-        <Footer />
-      </div>
+      <main className={styles.main}>
+        <AddItemForm
+          handleSubmit={handleSubmit}
+          form={form}
+          setForm={setForm}
+        />
+        <CardGrid
+          wishs={filteredWishs}
+          handleDelete={handleDelete}
+          search={search}
+        />
+      </main>
     </>
   );
 }
