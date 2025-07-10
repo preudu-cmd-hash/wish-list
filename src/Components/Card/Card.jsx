@@ -1,14 +1,10 @@
 import { use, useState } from "react";
 import styles from "./Card.module.css";
 import { useNavigate } from "react-router";
+import { formatDate } from "../../utils/FormatDate";
 
 export const Card = ({ name, description, image, date, onDelete, id }) => {
-  const [ano, mes, dia] = date ? date.split("-") : "";
-  const convertedDate = new Date(ano, mes - 1, dia);
-  const formatedDate = isNaN(convertedDate)
-    ? ""
-    : Intl.DateTimeFormat("pt-Br").format(convertedDate);
-
+  const formatedDate = formatDate(date);
   const navigate = useNavigate();
 
   return (

@@ -27,5 +27,6 @@ export const useWishs = () => {
     wishs,
     setWishs,
     loading,
+    setLoading,
   };
 };
