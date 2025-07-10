@@ -9,7 +9,6 @@ const DEFAULT_FORM = {
   description: "",
   urlImage: "",
   date: "",
-  id: "",
 };
 
 function App({ search }) {
@@ -19,6 +18,9 @@ function App({ search }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const newId =
+      wishs.length > 0 ? Math.max(...wishs.map((w) => Number(w.id))) + 1 : 1;
+    const newWish = { ...form, id: newId };
     const updatedWishs = [...wishs, form];
     setWishs(updatedWishs);
     setForm(DEFAULT_FORM);
