@@ -6,7 +6,7 @@ import { AddItemForm } from "../AddItemForm/AddItemForm";
 
 export const WishDetail = () => {
   const { id } = useParams();
-  const { wishs, loading, setLoading, form, setForm } = useWishs();
+  const { wishs, loading, setLoading, form, setForm, setWishs } = useWishs();
   const [wishDetail, setWishDetail] = useState({});
   const navigate = useNavigate();
   const [isEditing, setIsEditing] = useState(false);
@@ -33,6 +33,15 @@ export const WishDetail = () => {
   if (loading) {
     return <h1>Carregando...</h1>;
   }
+
+  const handleUpdate = (e) => {
+    e.preventDefault();
+    const updWish = { ...form, id: wishDetail.id };
+    setWishs((prev) =>
+      prev.map((wish) => (wish.id == updWish.id ? updWish : wish))
+    );
+    setIsEditing(false);
+  };
 
   return (
     <>
