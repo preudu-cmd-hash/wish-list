@@ -3,6 +3,7 @@ import { useWishs } from "../../Hooks/useWishs";
 import { useEffect, useState } from "react";
 import { formatDate } from "../../utils/FormatDate";
 import { AddItemForm } from "../AddItemForm/AddItemForm";
+import styles from "./WishDetail.module.css";
 
 export const WishDetail = () => {
   const { id } = useParams();
@@ -45,9 +46,15 @@ export const WishDetail = () => {
 
   return (
     <>
-      <div>
-        <button onClick={() => navigate(-1)}>Voltar</button>
-        <button onClick={handleEditToggle}>Editar</button>
+      <div className={styles.container}>
+        <div className={styles.button}>
+          <button className={styles.back} onClick={() => navigate(-1)}>
+            Voltar
+          </button>
+          <button className={styles.edit} onClick={handleEditToggle}>
+            Editar
+          </button>
+        </div>
         {isEditing ? (
           <>
             <AddItemForm
@@ -58,16 +65,15 @@ export const WishDetail = () => {
           </>
         ) : (
           <>
-            <h1>Detalhes do desejo com o id: {id}</h1>
-            <p>{wishDetail.name}</p>
+            <h1 className={styles.title}>Detalhes do desejo com o id: {id}</h1>
             <img
-              width={200}
-              height={150}
+              className={styles.img}
               src={wishDetail.urlImage}
               alt={wishDetail.name}
             />
-            <p>{wishDetail.description}</p>
-            <p>{formatDate(wishDetail.date)}</p>
+            <p className={styles.name}>{wishDetail.name}</p>
+            <p className={styles.desc}>{wishDetail.description}</p>
+            <p className={styles.date}>{formatDate(wishDetail.date)}</p>
           </>
         )}
       </div>
